@@ -1,9 +1,13 @@
 //главная страница
 
+import { Catalog } from '../../components/Catalog/Catalog';
+import { TopSales } from '../../components/Top-sales/Top-sales';
+
 export const HomePage = () => {
   return (
-    <div>
-      <p>Главная страница</p>
-    </div>
+    <>
+      <TopSales />
+      <Catalog />
+    </>
   );
 };

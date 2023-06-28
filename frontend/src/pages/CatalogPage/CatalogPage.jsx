@@ -1,9 +1,7 @@
 //каталог
 
+import { Catalog } from '../../components/Catalog/Catalog';
+
 export const CatalogPage = () => {
-  return (
-    <div>
-      <p>корзина страница</p>
-    </div>
-  );
+  return <Catalog isActiveForm={true} />;
 };
