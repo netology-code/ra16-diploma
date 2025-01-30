@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "src/server.mjs",
+  "main": "src/index.mjs",
   "scripts": {
-    "start": "node src/server.mjs",
-    "flaky": "cross-env APP_DELAY=true APP_ERROR=true node src/server.mjs",
+    "start": "node src/index.mjs",
+    "flaky": "cross-env APP_DELAY=true APP_ERROR=true node src/index.mjs",
     "test": "node --test",
     "lint": "prettier --write src"
   },

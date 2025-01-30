@@ -31,13 +31,13 @@ npm run flaky
 Команды ниже не будут работать в cmd.exe и powershell, но должны работать в gitbash / wsl / linux / macos)
 ```bash
 # сервер с задержками
-APP_DELAY=true node src/server.mjs
+APP_DELAY=true node src/index.mjs
 
 # сервер с ошибками
-APP_ERROR=true node src/server.mjs
+APP_ERROR=true node src/index.mjs
 
 # сервер с ошибками и задержками
-APP_DELAY=true APP_ERROR=true node src/server.mjs
+APP_DELAY=true APP_ERROR=true node src/index.mjs
 ```
 
 Для хранения состояния корзины и побочных эффектов могут использоваться:
