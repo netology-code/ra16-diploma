@@ -1,20 +1,19 @@
 {
-  "name": "backend",
+  "name": "ra16-diploma-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/index.mjs",
   "scripts": {
-    "prestart": "npm install",
-    "start": "forever server.js",
-    "watch": "forever -w server.js"
+    "start": "node src/index.mjs",
+    "flaky": "cross-env APP_DELAY=true APP_ERROR=true node src/index.mjs",
+    "test": "node --test",
+    "lint": "prettier --write src"
   },
-  "author": "",
+  "author": "Damir Rysaev <freepad@ya.ru>",
   "license": "ISC",
-  "dependencies": {
-    "forever": "^1.0.0",
-    "koa": "^2.7.0",
-    "koa-body": "^4.1.1",
-    "koa-router": "^7.4.0",
-    "koa2-cors": "^2.0.6"
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "prettier": "^3.4.2"
   }
 }

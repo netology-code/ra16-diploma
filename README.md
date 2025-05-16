@@ -14,31 +14,32 @@
 
 Внешний вид должен быть аналогичен тому, что представлен в разметке в каталоге `html`.
 
-Бэкенд видоизменять нельзя. Всё, что можно там сделать, — это раскомментировать строки для генерации задержки и ошибки:
-```js
-const fortune = (ctx, body = null, status = 200) => {
-    // Uncomment for delay
-    // const delay = randomNumber(1, 10) * 1000;
-    const delay = 0;
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            // Uncomment for error generation
-            // if (Math.random() > 0.8) {
-            //     reject(new Error('Something bad happened'));
-            //     return;
-            // }
+Бэкенд видоизменять нельзя.
+При необходимости опубликовать сервер в интернете, используйте [render.com](https://render.com/docs/your-first-deploy) или аналоги.
+Опубликованный сервер [https://ra16-diploma-1.onrender.com](https://ra16-diploma-1.onrender.com/api/items), может работать с перебоями, т.к. используется бесплатный тариф `render.com`
 
-            ctx.response.status = status;
-            ctx.response.body = body;
-            resolve();
-        }, delay);
-    })
-}
+Сервер запускается командой:
+```bash
+npm start
+```
+Если вы хотите проверить, как ваше приложение обрабатывает ошибки и задержки сервера, то:
+```bash
+npm install # зависимости нужно установить, т.к. нужно установить пакет cross-env
+npm run flaky
 ```
 
-Они специально закомментированы, чтобы вам не приходилось ждать по 0–10 секунд на каждый запрос и не мучиться с ошибками.
 
-Запускать сервер нужно командой `npm run watch`, не забудьте сначала сделать `npm install`, тогда он запустится в режиме live-reload.
+Команды ниже не будут работать в cmd.exe и powershell, но должны работать в gitbash / wsl / linux / macos)
+```bash
+# сервер с задержками
+APP_DELAY=true node src/index.mjs
+
+# сервер с ошибками
+APP_ERROR=true node src/index.mjs
+
+# сервер с ошибками и задержками
+APP_DELAY=true APP_ERROR=true node src/index.mjs
+```
 
 Для хранения состояния корзины и побочных эффектов могут использоваться:
 1. Context API + побочные эффекты в компонентах;
@@ -231,7 +232,7 @@ const fortune = (ctx, body = null, status = 200) => {
 {
   "owner": {
     "phone": "+7xxxxxxxxxxx",
-    "address": "Moscow City",
+    "address": "Moscow City"
   },
   "items": [
     {
